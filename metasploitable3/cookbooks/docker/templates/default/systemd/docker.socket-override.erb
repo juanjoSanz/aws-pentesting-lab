@@ -1,0 +1,11 @@
+[Unit]
+Description=Docker Socket for the API
+PartOf=<%= @docker_name %>.service
+
+[Socket]
+ListenStream=<%= @docker_socket %>
+SocketGroup=<%= @config.group %>
+<%= @systemd_socket_args  %>
+
+[Install]
+WantedBy=sockets.target
